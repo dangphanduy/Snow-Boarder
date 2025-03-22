@@ -10,12 +10,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float baseAmount = 20f;
     SurfaceEffector2D surfaceEffector2D;
     
-    bool canMove;
+    bool canMove = true;
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         surfaceEffector2D = FindAnyObjectByType<SurfaceEffector2D>();
-        canMove = true;
     }
     // Update is called once per frame
     void Update()
@@ -29,6 +28,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void DisableControls() {
+        canMove = false;
     }
     void RespondToBoost()
     {
